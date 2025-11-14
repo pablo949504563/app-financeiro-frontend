@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+  color: #333;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.portfolio-app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.financial-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.balance-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+.balance-card h3 {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.balance-amount {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.balance-amount.positive {
+  color: #27ae60;
+}
+
+.balance-amount.negative {
+  color: #e74c3c;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.summary-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.summary-card h4 {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.amount.positive {
+  color: #27ae60;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.amount.negative {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.transaction-form {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.transaction-form h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.form-group button {
+  padding: 12px 20px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-group button:hover {
+  background: #5a6fd8;
+}
+
+.transactions-list {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transactions-list h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.no-transactions {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 40px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e1e8ed;
+  transition: background-color 0.3s;
+}
+
+.transaction:last-child {
+  border-bottom: none;
+}
+
+.transaction:hover {
+  background-color: #f8f9fa;
+}
+
+.transaction-info {
+  flex: 1;
+}
+
+.transaction-info .description {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.transaction-info .date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.transaction-amount {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.transaction.income .amount {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.transaction.expense .amount {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .portfolio-app {
+    padding: 15px;
+  }
+  
+  .financial-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .transaction {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+  
+  .transaction-amount {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
