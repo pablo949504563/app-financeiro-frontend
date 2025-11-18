@@ -266,3 +266,236 @@ body {
     justify-content: space-between;
   }
 }
+
+/* ==========================================================================
+   NOVA FORMATAÇÃO PARA TOTAIS (igual à imagem)
+   ========================================================================== */
+
+.totais-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.total-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-left: 5px solid transparent;
+}
+
+.total-card.receitas {
+  border-left-color: #27ae60;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fff9 100%);
+}
+
+.total-card.despesas {
+  border-left-color: #e74c3c;
+  background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
+}
+
+.total-label {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+  display: block;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.total-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.total-value.receitas {
+  color: #27ae60;
+}
+
+.total-value.despesas {
+  color: #e74c3c;
+}
+
+/* Ajuste no saldo para ficar mais destacado */
+.balance-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+  border: 2px solid #e1e8ed;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+}
+
+.balance-label {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 500;
+}
+
+.balance-amount {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.balance-amount.positive {
+  color: #27ae60;
+}
+
+.balance-amount.negative {
+  color: #e74c3c;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+  .totais-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .total-card {
+    padding: 20px;
+  }
+  
+  .total-value {
+    font-size: 1.7rem;
+  }
+  
+  .balance-card {
+    padding: 25px;
+  }
+  
+  .balance-amount {
+    font-size: 2rem;
+  }
+}
+
+/* ==========================================================================
+   GASTOS POR CATEGORIA
+   ========================================================================== */
+
+.gastos-categoria {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.gastos-categoria h3 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.categorias-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.categoria-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.categoria-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.categoria-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.categoria-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #667eea;
+}
+
+.categoria-bullet.moradia { background: #e74c3c; }
+.categoria-bullet.alimentacao { background: #27ae60; }
+.categoria-bullet.transporte { background: #3498db; }
+.categoria-bullet.saude { background: #9b59b6; }
+.categoria-bullet.lazer { background: #f39c12; }
+.categoria-bullet.educacao { background: #1abc9c; }
+.categoria-bullet.salario { background: #2ecc71; }
+.categoria-bullet.geral { background: #95a5a6; }
+
+.categoria-nome {
+  font-weight: 500;
+  color: #333;
+  min-width: 120px;
+}
+
+.categoria-valor {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+/* Versão com barras de progresso */
+.categoria-item.com-barra {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.categoria-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoria-bar-container {
+  height: 8px;
+  background: #e1e8ed;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.categoria-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.categoria-bar.moradia { background: #e74c3c; }
+.categoria-bar.alimentacao { background: #27ae60; }
+.categoria-bar.transporte { background: #3498db; }
+.categoria-bar.saude { background: #9b59b6; }
+.categoria-bar.lazer { background: #f39c12; }
+.categoria-bar.educacao { background: #1abc9c; }
+.categoria-bar.salario { background: #2ecc71; }
+.categoria-bar.geral { background: #95a5a6; }
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .categoria-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .categoria-info {
+    justify-content: space-between;
+  }
+}
